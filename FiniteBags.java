@@ -63,7 +63,7 @@ public class Things_MT<I extends Comparable> implements FiniteBags<I>, Sequence 
 	}
 
 	public FiniteBags add(I item) {
-		return add(elt 1).blacklen();
+		return add(elt, 1).blacklen();
 	}
 
 	public FiniteBags add(I item, int num){
@@ -102,6 +102,7 @@ public class Things_MT<I extends Comparable> implements FiniteBags<I>, Sequence 
 			return false;
 		}
 	}
+
 	public boolean subset(FiniteBags baggy){
 		return true;
 	}
@@ -117,7 +118,7 @@ public class Things_MT<I extends Comparable> implements FiniteBags<I>, Sequence 
 }
 
 
-public class Things_ST<D extends Comparable> implements FiniteBags<D>{
+public class Things_ST<D extends Comparable> implements FiniteBags<D>, Sequence{
 
 	FiniteBags lefty;
 	I here;
@@ -141,7 +142,7 @@ public class Things_ST<D extends Comparable> implements FiniteBags<D>{
 		if(item.compareTo(this.here) == 0){
 		return true;
 		}
-		else if(item.compareTo(this.here) < 0) {
+		else if(item.compareTo(this.here) > 0) {
 			return this.righty.member(item);
 		}
 		else {
@@ -318,7 +319,7 @@ public class randString implements Randomness<String> {
 		}
 }
 
-public class randInt implements Randomness<Integer>{
+public class randomInt implements Randomness<Integer>{
 
 	public Integer createRand(){
 		Random rand = new Random();
